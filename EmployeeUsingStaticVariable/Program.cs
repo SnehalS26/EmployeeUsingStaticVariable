@@ -10,17 +10,34 @@ namespace EmployeeUsingStaticVariable
     {
         static void Main(string[] args)
         {
-            Employee emp1 = new Employee("Snehal", 10000);
-            emp1.CalculateSalary();
+            SalesManager salesManager = new SalesManager("nikita" , 25000, 3000);
+            salesManager.CalculateSalary();
+            Console.WriteLine(salesManager);
 
-            Employee emp2 = new Employee("Sneha", 20000);
-            emp2.CalculateSalary();
+            Inheritance inheritance = new Inheritance("sneh", 15000);
+            inheritance.CalculateSalary();
+            Console.WriteLine(inheritance);
 
-            //instance Method
-            Console.WriteLine(emp1.PrintDeatils());
-            Console.WriteLine(emp2.PrintDeatils());
 
-            Console.WriteLine(Employee.GetCount());  //print class method
+
+
+
+
+
+
+
+
+            //Employee emp1 = new Employee("Snehal", 10000);
+            //emp1.CalculateSalary();
+
+            //Employee emp2 = new Employee("Sneha", 20000);
+            //emp2.CalculateSalary();
+
+            ////instance Method
+            //Console.WriteLine(emp1.PrintDeatils());
+            //Console.WriteLine(emp2.PrintDeatils());
+
+            //Console.WriteLine(Employee.GetCount());  //print class method
         }
     }
 }
