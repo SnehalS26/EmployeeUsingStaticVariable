@@ -20,11 +20,7 @@ namespace EmployeeUsingStaticVariable
             this.name = name;
             this.basicSal = basicSal;
         }
-
-        public static int GetCount()
-        {
-            return count;
-        }
+        // to allow method to be overriden we use virtual keyword
 
         public virtual void CalculateSalary()
         {
@@ -46,12 +42,16 @@ namespace EmployeeUsingStaticVariable
     public class SalesManager : Inheritance
     {
         private double comm;
-        //first always call base class constructor
-        public SalesManager(string name , double basicSal , double comm) : base(name, basicSal)
+        // first always it calls to base class constructor
+        // base keyword is used to call the base class members 
+
+        public SalesManager(string name , double basicSal , double comm) : base(name, basicSal)  //parametric constructor
         {
             this.comm = comm;
         }
 
+
+        // method which is sam in base class should override the implementation
         public override void CalculateSalary()
         {
             hra = basicSal * 0.40;
@@ -62,6 +62,32 @@ namespace EmployeeUsingStaticVariable
             totalSal = hra + ta + da;
 
             grossSal = (hra + ta + da + comm) - pf;
+        }
+        // ToString() --> gives the string representation of an object
+        public override string ToString()
+        {
+            return $"id = {empid} \nName = {name} \nGross = {grossSal}";
+        }
+    }
+
+    public class CEO : Inheritance
+    {
+        private double profit ;
+
+        public CEO (string name , double basciSal , double profit) : base(name , basciSal)
+        {
+            this.profit = profit ;
+        }
+        public override void CalculateSalary()
+        {
+            hra = basicSal * 0.40;
+            ta = basicSal * 0.20;
+            da = basicSal * 0.15;
+            pf = basicSal * 0.12;
+
+            totalSal = hra + ta + da +profit;
+
+            grossSal = (totalSal) - pf;
         }
         public override string ToString()
         {

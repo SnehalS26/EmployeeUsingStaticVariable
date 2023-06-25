@@ -10,13 +10,17 @@ namespace EmployeeUsingStaticVariable
     {
         static void Main(string[] args)
         {
-            SalesManager salesManager = new SalesManager("nikita" , 25000, 3000);
+            SalesManager salesManager = new SalesManager("nikita", 25000, 3000);
             salesManager.CalculateSalary();
-            Console.WriteLine(salesManager);
+            Console.WriteLine(salesManager);  // ToString() get called implicitly
 
             Inheritance inheritance = new Inheritance("sneh", 15000);
             inheritance.CalculateSalary();
             Console.WriteLine(inheritance);
+
+            CEO ceo = new CEO("Pankaj", 20000, 20);
+            ceo.CalculateSalary();  //call calculate salary
+            Console.WriteLine(ceo);  //print 
 
 
 
